@@ -1,11 +1,58 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '@/styles/Home.module.css';
-import { Box, Divider, Stack, Typography } from '@mui/material';
+import { Box, Container, Divider, Stack, Typography } from '@mui/material';
 import { useTheme } from '@emotion/react';
+import { ProductSlider } from '../components/ProductSlider/ProductSlider.jsx';
 
 export default function Home() {
   const theme = useTheme();
+
+  const products = [
+    {
+      id: 1,
+      name: 'Product 1',
+      image: 'https://source.unsplash.com/300x200/?product',
+      price: '$19.99',
+    },
+    {
+      id: 2,
+      name: 'Product 2',
+      image: 'https://source.unsplash.com/300x200/?product',
+      price: '$29.99',
+    },
+    {
+      id: 3,
+      name: 'Product 3',
+      image: 'https://source.unsplash.com/300x200/?product',
+      price: '$39.99',
+    },
+    {
+      id: 4,
+      name: 'Product 4',
+      image: 'https://source.unsplash.com/300x200/?product',
+      price: '$39.99',
+    },
+    {
+      id: 5,
+      name: 'Product 5',
+      image: 'https://source.unsplash.com/300x200/?product',
+      price: '$39.99',
+    },
+    {
+      id: 6,
+      name: 'Product 6',
+      image: 'https://source.unsplash.com/300x200/?product',
+      price: '$39.99',
+    },
+    {
+      id: 7,
+      name: 'Product 7',
+      image: 'https://source.unsplash.com/300x200/?product',
+      price: '$39.99',
+    },
+    // add more products as needed
+  ];
   return (
     <>
       <Head>
@@ -15,12 +62,20 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className={styles.main}>
+        <Container maxWidth='lg'>
+          <ProductSlider products={products} />
+        </Container>
         <Stack
           direction={{ xs: 'column', xl: 'row' }}
           spacing={5}
           justifyContent='center'
           alignItems='center'
-          divider={<Divider orientation='vertical' flexItem />}
+          divider={
+            <Divider
+              orientation={{ xs: 'horizontal', xl: 'vertical' }}
+              flexItem
+            />
+          }
         >
           <Box
             sx={{
